@@ -14,9 +14,9 @@ function testProcessor() {
   console.log("Output data count:", processed.length);
   console.log("\n=== PROCESSED RESULTS ===\n");
   
-//   processed.forEach(record => {
-//     console.log(`ID: ${record.id} | DateTime: ${record.for_datetime} | Value: ${record.value} | Place: ${record.placeOfMeasurementId} | Method: ${record.measurementMethodId}`);
-//   });
+  processed.forEach(record => {
+    console.log(`ID: ${record.id} | DateTime: ${record.for_datetime} | Value: ${record.value} | Place: ${record.placeOfMeasurementId} | Method: ${record.measurementMethodId}`);
+  });
 }
 
 testProcessor();
