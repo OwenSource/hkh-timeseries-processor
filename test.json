@@ -1,0 +1,326 @@
+[
+  {
+    "id": "1",
+    "value": "100",
+    "tso_id": "1",
+    "tso__id": "x1",
+    "tso_time": "2025-12-08 10:00:00",
+    "for_datetime": "2025-12-09 10:00:00",
+    "created_at": "2025-12-08 10:00:00",
+    "updated_at": "2025-12-08 10:00:00",
+    "placeOfMeasurementId": "100",
+    "measurementMethodId": "A"
+  },
+
+  {
+    "id": "2",
+    "value": "300",
+    "tso_id": "1",
+    "tso__id": "x2",
+    "tso_time": "2025-12-08 10:05:00",
+    "for_datetime": "2025-12-09 10:00:00",
+    "created_at": "2025-12-08 10:05:00",
+    "updated_at": "2025-12-08 10:05:00",
+    "placeOfMeasurementId": "100",
+    "measurementMethodId": "A"
+  },
+
+  {
+    "id": "3",
+    "value": "250",
+    "tso_id": "1",
+    "tso__id": "x3",
+    "tso_time": "2025-12-08 10:10:00",
+    "for_datetime": "2025-12-09 10:00:00",
+    "created_at": "2025-12-08 10:10:00",
+    "updated_at": "2025-12-08 10:10:00",
+    "placeOfMeasurementId": "100",
+    "measurementMethodId": "A"
+  },
+
+  {
+    "id": "4",
+    "value": "500",
+    "tso_id": "1",
+    "tso__id": "x4",
+    "tso_time": "2025-12-08 20:00:00",
+    "for_datetime": "2025-12-09 23:45:00",
+    "created_at": "2025-12-08 20:00:00",
+    "updated_at": "2025-12-08 20:00:00",
+    "placeOfMeasurementId": "200",
+    "measurementMethodId": "B"
+  },
+
+  {
+    "id": "5",
+    "value": "600",
+    "tso_id": "1",
+    "tso__id": "x5",
+    "tso_time": "2025-12-08 20:05:00",
+    "for_datetime": "2025-12-09 23:50:00",
+    "created_at": "2025-12-08 20:05:00",
+    "updated_at": "2025-12-08 20:05:00",
+    "placeOfMeasurementId": "200",
+    "measurementMethodId": "B"
+  },
+
+  {
+    "id": "6",
+    "value": "550",
+    "tso_id": "1",
+    "tso__id": "x6",
+    "tso_time": "2025-12-08 20:10:00",
+    "for_datetime": "2025-12-10 00:10:00",
+    "created_at": "2025-12-08 20:10:00",
+    "updated_at": "2025-12-08 20:10:00",
+    "placeOfMeasurementId": "200",
+    "measurementMethodId": "B"
+  },
+
+  {
+    "id": "7",
+    "value": "100",
+    "tso_id": "1",
+    "tso__id": "x7",
+    "tso_time": "2025-12-08 20:15:00",
+    "for_datetime": "2025-12-10 00:00:00",
+    "created_at": "2025-12-08 20:15:00",
+    "updated_at": "2025-12-08 20:15:00",
+    "placeOfMeasurementId": "200",
+    "measurementMethodId": "B"
+  },
+
+  {
+    "id": "8",
+    "value": "900",
+    "tso_id": "1",
+    "tso__id": "x8",
+    "tso_time": "2025-12-08 21:00:00",
+    "for_datetime": "2025-12-10 00:00:00",
+    "created_at": "2025-12-08 21:00:00",
+    "updated_at": "2025-12-08 21:00:00",
+    "placeOfMeasurementId": "200",
+    "measurementMethodId": "B"
+  },
+
+  {
+    "id": "9",
+    "value": "1200",
+    "tso_id": "1",
+    "tso__id": "x9",
+    "tso_time": "2025-12-08 22:00:00",
+    "for_datetime": "2025-12-09 23:59:00",
+    "created_at": "2025-12-08 22:00:00",
+    "updated_at": "2025-12-08 22:00:00",
+    "placeOfMeasurementId": "300",
+    "measurementMethodId": "C"
+  },
+
+  {
+    "id": "10",
+    "value": "1100",
+    "tso_id": "1",
+    "tso__id": "x10",
+    "tso_time": "2025-12-08 22:05:00",
+    "for_datetime": "2025-12-10 00:15:00",
+    "created_at": "2025-12-08 22:05:00",
+    "updated_at": "2025-12-08 22:05:00",
+    "placeOfMeasurementId": "300",
+    "measurementMethodId": "C"
+  },
+
+  {
+    "id": "11",
+    "value": "800",
+    "tso_id": "1",
+    "tso__id": "x11",
+    "tso_time": "2025-12-08 22:10:00",
+    "for_datetime": "2025-12-10 00:00:00",
+    "created_at": "2025-12-08 22:10:00",
+    "updated_at": "2025-12-08 22:10:00",
+    "placeOfMeasurementId": "300",
+    "measurementMethodId": "C"
+  },
+
+  {
+    "id": "12",
+    "value": "5000",
+    "tso_id": "1",
+    "tso__id": "x12",
+    "tso_time": "2025-12-08 23:00:00",
+    "for_datetime": "2025-12-09 23:46:00",
+    "created_at": "2025-12-08 23:00:00",
+    "updated_at": "2025-12-08 23:00:00",
+    "placeOfMeasurementId": "400",
+    "measurementMethodId": "D"
+  },
+
+  {
+    "id": "13",
+    "value": "2000",
+    "tso_id": "1",
+    "tso__id": "x13",
+    "tso_time": "2025-12-08 23:05:00",
+    "for_datetime": "2025-12-09 00:00:00",
+    "created_at": "2025-12-08 23:05:00",
+    "updated_at": "2025-12-08 23:05:00",
+    "placeOfMeasurementId": "400",
+    "measurementMethodId": "D"
+  },
+
+  {
+    "id": "14",
+    "value": "100",
+    "tso_id": "1",
+    "tso__id": "x14",
+    "tso_time": "2025-12-08 06:00:00",
+    "for_datetime": "2025-12-07 23:50:00",
+    "created_at": "2025-12-08 06:00:00",
+    "updated_at": "2025-12-08 06:00:00",
+    "placeOfMeasurementId": "500",
+    "measurementMethodId": "E"
+  },
+
+  {
+    "id": "15",
+    "value": "300",
+    "tso_id": "1",
+    "tso__id": "x15",
+    "tso_time": "2025-12-08 06:05:00",
+    "for_datetime": "2025-12-08 00:00:00",
+    "created_at": "2025-12-08 06:05:00",
+    "updated_at": "2025-12-08 06:05:00",
+    "placeOfMeasurementId": "500",
+    "measurementMethodId": "E"
+  },
+
+  {
+    "id": "16",
+    "value": "50",
+    "tso_id": "1",
+    "tso__id": "x16",
+    "tso_time": "2025-12-08 07:00:00",
+    "for_datetime": "2025-12-08 12:00:00",
+    "created_at": "2025-12-08 07:00:00",
+    "updated_at": "2025-12-08 07:00:00",
+    "placeOfMeasurementId": "600",
+    "measurementMethodId": "F"
+  },
+
+  {
+    "id": "17",
+    "value": "200",
+    "tso_id": "1",
+    "tso__id": "x17",
+    "tso_time": "2025-12-08 07:05:00",
+    "for_datetime": "2025-12-08 12:00:00",
+    "created_at": "2025-12-08 07:05:00",
+    "updated_at": "2025-12-08 07:05:00",
+    "placeOfMeasurementId": "600",
+    "measurementMethodId": "F"
+  },
+
+  {
+    "id": "18",
+    "value": "180",
+    "tso_id": "1",
+    "tso__id": "x18",
+    "tso_time": "2025-12-08 07:10:00",
+    "for_datetime": "2025-12-08 12:00:00",
+    "created_at": "2025-12-08 07:10:00",
+    "updated_at": "2025-12-08 07:10:00",
+    "placeOfMeasurementId": "600",
+    "measurementMethodId": "F"
+  },
+
+  {
+    "id": "19",
+    "value": "700",
+    "tso_id": "1",
+    "tso__id": "x19",
+    "tso_time": "2025-12-08 22:20:00",
+    "for_datetime": "2025-12-10 00:00:00",
+    "created_at": "2025-12-08 22:20:00",
+    "updated_at": "2025-12-08 22:20:00",
+    "placeOfMeasurementId": "300",
+    "measurementMethodId": "C"
+  },
+
+  {
+    "id": "20",
+    "value": "50",
+    "tso_id": "1",
+    "tso__id": "x20",
+    "tso_time": "2025-12-08 12:00:00",
+    "for_datetime": "2025-12-09 05:00:00",
+    "created_at": "2025-12-08 12:00:00",
+    "updated_at": "2025-12-08 12:00:00",
+    "placeOfMeasurementId": "700",
+    "measurementMethodId": "G"
+  },
+
+  {
+    "id": "21",
+    "value": "75",
+    "tso_id": "1",
+    "tso__id": "x21",
+    "tso_time": "2025-12-08 12:05:00",
+    "for_datetime": "2025-12-09 05:00:00",
+    "created_at": "2025-12-08 12:05:00",
+    "updated_at": "2025-12-08 12:05:00",
+    "placeOfMeasurementId": "700",
+    "measurementMethodId": "G"
+  },
+
+  {
+    "id": "22",
+    "value": "30",
+    "tso_id": "1",
+    "tso__id": "x22",
+    "tso_time": "2025-12-08 18:00:00",
+    "for_datetime": "2025-12-08 23:55:00",
+    "created_at": "2025-12-08 18:00:00",
+    "updated_at": "2025-12-08 18:00:00",
+    "placeOfMeasurementId": "800",
+    "measurementMethodId": "H"
+  },
+
+  {
+    "id": "23",
+    "value": "45",
+    "tso_id": "1",
+    "tso__id": "x23",
+    "tso_time": "2025-12-08 18:05:00",
+    "for_datetime": "2025-12-09 00:00:00",
+    "created_at": "2025-12-08 18:05:00",
+    "updated_at": "2025-12-08 18:05:00",
+    "placeOfMeasurementId": "800",
+    "measurementMethodId": "H"
+  },
+
+  {
+    "id": "24",
+    "value": "10",
+    "tso_id": "1",
+    "tso__id": "x24",
+    "tso_time": "2025-12-08 18:10:00",
+    "for_datetime": "2025-12-09 00:10:00",
+    "created_at": "2025-12-08 18:10:00",
+    "updated_at": "2025-12-08 18:10:00",
+    "placeOfMeasurementId": "800",
+    "measurementMethodId": "H"
+  },
+
+  {
+    "id": "25",
+    "value": "9999",
+    "tso_id": "1",
+    "tso__id": "x25",
+    "tso_time": "2025-12-08 18:20:00",
+    "for_datetime": "2025-12-08 23:59:00",
+    "created_at": "2025-12-08 18:20:00",
+    "updated_at": "2025-12-08 18:20:00",
+    "placeOfMeasurementId": "800",
+    "measurementMethodId": "H"
+  }
+]
