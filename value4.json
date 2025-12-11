@@ -1,0 +1,50 @@
+[
+    {
+        "id": "66991539",
+        "value": "500000",
+        "tso_id": "25",
+        "tso__id": "655d76a8472ca292a2015f22",
+        "tso_time": "2025-12-09 23:12:06",
+        "for_datetime": "2025-12-09 23:45:00",
+        "created_at": "2025-12-09 09:13:09.505916",
+        "updated_at": "2025-12-09 09:13:09.505916",
+        "placeOfMeasurementId": "774",
+        "measurementMethodId": "333965"
+    },
+    {
+        "id": "66991538",
+        "value": "1000",
+        "tso_id": "24",
+        "tso__id": "655d76a8472ca292a2015f21",
+        "tso_time": "2025-12-09 23:12:06",
+        "for_datetime": "2025-12-09 00:13:00",
+        "created_at": "2025-12-09 09:13:09.501152",
+        "updated_at": "2025-12-09 09:13:09.501152",
+        "placeOfMeasurementId": "775",
+        "measurementMethodId": "333963"
+    },
+    {
+        "id": "66991537",
+        "value": "65.62369848632812",
+        "tso_id": "24",
+        "tso__id": "655d76a8472ca292a2015f21",
+        "tso_time": "2025-12-09 23:12:06",
+        "for_datetime": "2025-12-09 23:46:00",
+        "created_at": "2025-12-09 09:13:09.499956",
+        "updated_at": "2025-12-09 09:13:09.499956",
+        "placeOfMeasurementId": "775",
+        "measurementMethodId": "333963"
+    },
+    {
+        "id": "66991536",
+        "value": "66.15499169921875",
+        "tso_id": "23",
+        "tso__id": "655d76a8472ca292a2015f20",
+        "tso_time": "2025-12-09 23:12:06",
+        "for_datetime": "2025-12-09 00:14:00",
+        "created_at": "2025-12-09 09:13:09.495789",
+        "updated_at": "2025-12-09 09:13:09.495789",
+        "placeOfMeasurementId": "774",
+        "measurementMethodId": "333963"
+    }
+]
