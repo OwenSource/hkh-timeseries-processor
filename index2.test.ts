@@ -71,7 +71,6 @@ describe("removeDuplicates", async () => {
             const result = removeDuplicates(json4);
 
             const final = replaceMidnightValue(result);
-            console.log("final", final);
 
             const expected = [
                 {
