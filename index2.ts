@@ -1,6 +1,6 @@
 import { parseISO, isWithinInterval, format, getSeconds, add } from "date-fns";
 import type { MeasurementRecord } from ".";
-import { Array as A, pipe } from "effect";
+import { Array as A, Brand, pipe } from "effect";
 import { getMinutes } from "date-fns/fp";
 
 export type MS = MeasurementRecord;
@@ -28,17 +28,20 @@ export const removeDuplicates = (data: MS[]): MS[] => {
     return Array.from(noDupMap.values());
 };
 
-export const groupByPlaceAndMethod = (arr: MS[]): Map<string, MS[]> => {
-    const map = new Map<string, MS[]>();
+type PlaceAndMethod = string & Brand.Brand<"PlaceAndMethod">;
+const PlaceAndMethod = Brand.nominal<PlaceAndMethod>();
+export const groupByPlaceAndMethod = (arr: MS[]): Map<PlaceAndMethod, MS[]> => {
+    const map = new Map<PlaceAndMethod, MS[]>();
 
     const group = A.reduce(arr, map, (acc, cur) => {
         const key = `${cur.placeOfMeasurementId}::${cur.measurementMethodId}`;
-        const existing = acc.get(key);
+        const pmKey = PlaceAndMethod(key);
+        const existing = acc.get(pmKey);
         if (!existing) {
-            acc.set(key, [cur]);
+            acc.set(pmKey, [cur]);
             return acc;
         }
-        acc.set(key, [...existing, cur]);
+        acc.set(pmKey, [...existing, cur]);
         return acc;
     });
 
@@ -113,12 +116,15 @@ export const getUniqueMidnightDates = (arr: MS[]): Date[] => {
     return Array.from(dateMap.values());
 };
 
-export const groupByDates = (arr: MS[]): Map<string, MS[]> => {
-    const map = new Map<string, MS[]>();
+type DateISO = string & Brand.Brand<"DateISO">;
+const DateISO = Brand.nominal<DateISO>();
+export const groupByDates = (arr: MS[]): Map<DateISO, MS[]> => {
+    const map = new Map<DateISO, MS[]>();
     const midnightDates = getUniqueMidnightDates(arr);
 
     const newMap = A.reduce(midnightDates, map, (acc, date) => {
         const key = date.toISOString();
+        const isoKey = DateISO(key);
 
         const timeWindow = {
             start: setHours(date, { hours: 23, minutes: 45, seconds: 0 }),
@@ -135,13 +141,13 @@ export const groupByDates = (arr: MS[]): Map<string, MS[]> => {
                 timeWindow,
             ),
         );
-        acc.set(key, items);
+        acc.set(isoKey, items);
         return acc;
     });
-    return map;
+    return newMap;
 };
 
-export const findMaxValueInGroup = (map: Map<string, MS[]>) => {
+export const findMaxValueInGroup = (map: Map<DateISO, MS[]>) => {
     const maxValueOfGroup = [...map.entries()].flatMap(([key, value]) => {
         const head = value[0];
 
@@ -167,13 +173,17 @@ export const findMaxValueInGroup = (map: Map<string, MS[]>) => {
 
 export const replaceMidnightValue = (arr: MS[]): MS[] => {
     const group = groupByPlaceAndMethod(arr);
+    console.log("group", group);
+
+    const firstGroup = [...group.entries()][0];
 
     const final = [...group.entries()].map(([key, value]) => {
-        const group = groupByDates(value);
-        const maxInGroup = findMaxValueInGroup(group);
+        const groupByDate = groupByDates(value);
+        console.log("group by date", groupByDate);
+        const maxInGroup = findMaxValueInGroup(groupByDate);
         console.log(key, "max in group", maxInGroup);
 
-        const newMSList = value.map((ms) => {
+        value.forEach((ms) => {
             const find = maxInGroup.find((max) => {
                 if (
                     max.date.toISOString() === toDateISOString(ms.for_datetime)
@@ -182,16 +192,11 @@ export const replaceMidnightValue = (arr: MS[]): MS[] => {
                 }
                 return false;
             });
-            if (!find) return ms;
-            console.log("find", find);
-            return {
-                ...find.maxItem,
-                for_datetime: find.date.toISOString(),
-            };
+
+            if (!find) return;
+
+            console.log({ ...find, dateStr: find.date.toISOString() });
+            groupByDate.set(find.date.toISOString(), find.maxItem);
         });
-
-        return newMSList;
     });
-
-    return final.flat();
 };
