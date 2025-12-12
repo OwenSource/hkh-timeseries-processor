@@ -1,0 +1,62 @@
+[
+    {
+        "value": 500000,
+        "tso_id": 41,
+        "tso__id": "655d76a8472ca292a2015f33",
+        "tso_time": "2025-12-12T14:43:49.000Z",
+        "for_datetime": "2025-12-09T23:45:00.000Z",
+        "measurement_method": {
+            "name": "N2",
+            "unit": "%Mol"
+        },
+        "place_of_measurement": {
+            "name": "HKP",
+            "source_name": "tso"
+        }
+    },
+    {
+        "value": 1000,
+        "tso_id": 40,
+        "tso__id": "655d76a8472ca292a2015f32",
+        "tso_time": "2025-12-12T14:43:49.000Z",
+        "for_datetime": "2025-12-09T00:13:00.000Z",
+        "measurement_method": {
+            "name": "C6+",
+            "unit": "%Mol"
+        },
+        "place_of_measurement": {
+            "name": "HKP",
+            "source_name": "tso"
+        }
+    },
+    {
+        "value": 0.00279999990016222,
+        "tso_id": 39,
+        "tso__id": "655d76a8472ca292a2015f31",
+        "tso_time": "2025-12-11T00:00:00.000Z",
+        "for_datetime": "2025-12-11T00:00:00.000Z",
+        "measurement_method": {
+            "name": "nC5",
+            "unit": "%Mol"
+        },
+        "place_of_measurement": {
+            "name": "HKP",
+            "source_name": "tso"
+        }
+    },
+    {
+        "value": 6600,
+        "tso_id": 38,
+        "tso__id": "655d76a8472ca292a2015f30",
+        "tso_time": "2025-12-12T14:43:49.000Z",
+        "for_datetime": "2025-12-12T00:14:00.000Z",
+        "measurement_method": {
+            "name": "nC5",
+            "unit": "%Mol"
+        },
+        "place_of_measurement": {
+            "name": "HKP",
+            "source_name": "tso"
+        }
+    }
+]
