@@ -1,4 +1,5 @@
-import { parseISO, isWithinInterval, format, getSeconds, add } from "date-fns";
+import { parseISO, isWithinInterval, format, add, formatISO } from "date-fns";
+import { format as formatFp, addMinutes } from "date-fns/fp";
 import type { MeasurementRecord } from ".";
 import { Array as A, Brand, pipe } from "effect";
 import { getMinutes } from "date-fns/fp";
@@ -27,6 +28,20 @@ export const removeDuplicates = (data: MS[]): MS[] => {
 
     return Array.from(noDupMap.values());
 };
+
+export const measurementRecordListToMap = (arr: MS[]): Map<DateISO, MS> =>
+    A.reduce(arr, new Map<DateISO, MS>(), (acc, cur) => {
+        const key = pipe(
+            cur.for_datetime,
+            toDateISOString,
+            parseISO,
+            formatISO,
+            DateISO,
+        );
+
+        acc.set(key, cur);
+        return acc;
+    });
 
 type PlaceAndMethod = string & Brand.Brand<"PlaceAndMethod">;
 const PlaceAndMethod = Brand.nominal<PlaceAndMethod>();
@@ -118,7 +133,7 @@ export const getUniqueMidnightDates = (arr: MS[]): Date[] => {
 
 type DateISO = string & Brand.Brand<"DateISO">;
 const DateISO = Brand.nominal<DateISO>();
-export const groupByDates = (arr: MS[]): Map<DateISO, MS[]> => {
+export const groupByMidnightDates = (arr: MS[]): Map<DateISO, MS[]> => {
     const map = new Map<DateISO, MS[]>();
     const midnightDates = getUniqueMidnightDates(arr);
 
@@ -147,7 +162,7 @@ export const groupByDates = (arr: MS[]): Map<DateISO, MS[]> => {
     return newMap;
 };
 
-export const findMaxValueInGroup = (map: Map<DateISO, MS[]>) => {
+export const findMaxValueInDateGroup = (map: Map<DateISO, MS[]>) => {
     const maxValueOfGroup = [...map.entries()].flatMap(([key, value]) => {
         const head = value[0];
 
@@ -171,32 +186,36 @@ export const findMaxValueInGroup = (map: Map<DateISO, MS[]>) => {
     return maxValueOfGroup;
 };
 
-export const replaceMidnightValue = (arr: MS[]): MS[] => {
-    const group = groupByPlaceAndMethod(arr);
-    console.log("group", group);
+const isSameDate = (a: Date, b: Date) =>
+    format(a, "yyyy-MM-ddTHH:mm:ss") === format(b, "yyyy-MM-ddTHH:mm:ss");
 
-    const firstGroup = [...group.entries()][0];
+export const replaceSingleMidnightValue = ([key, value]: [
+    PlaceAndMethod,
+    MeasurementRecord[],
+]): MeasurementRecord[] => {
+    const midnightGroup = groupByMidnightDates(value);
+    console.log("group by midnight date", midnightGroup);
+    const maxInGroup = findMaxValueInDateGroup(midnightGroup);
+    console.log(key, "max in group", maxInGroup);
+    const msValueMap = measurementRecordListToMap(value);
 
-    const final = [...group.entries()].map(([key, value]) => {
-        const groupByDate = groupByDates(value);
-        console.log("group by date", groupByDate);
-        const maxInGroup = findMaxValueInGroup(groupByDate);
-        console.log(key, "max in group", maxInGroup);
-
-        value.forEach((ms) => {
-            const find = maxInGroup.find((max) => {
-                if (
-                    max.date.toISOString() === toDateISOString(ms.for_datetime)
-                ) {
-                    return true;
-                }
-                return false;
-            });
-
-            if (!find) return;
-
-            console.log({ ...find, dateStr: find.date.toISOString() });
-            groupByDate.set(find.date.toISOString(), find.maxItem);
+    maxInGroup.forEach((max) => {
+        const key = pipe(max.date, formatISO, DateISO);
+        msValueMap.set(key, {
+            ...max.maxItem,
+            for_datetime: pipe(
+                max.date,
+                addMinutes(max.date.getTimezoneOffset()),
+                formatFp("yyyy-MM-dd HH:mm:ss"),
+            ),
         });
     });
+
+    return [...msValueMap.values()];
+};
+
+export const replaceMidnightValue = (arr: MS[]): MS[] => {
+    const group = groupByPlaceAndMethod(arr);
+    const final = [...group.entries()].flatMap(replaceSingleMidnightValue);
+    return final;
 };
